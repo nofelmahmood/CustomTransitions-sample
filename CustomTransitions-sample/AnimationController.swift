@@ -38,9 +38,8 @@ extension AnimationController: UIViewControllerAnimatedTransitioning {
             let initialFrame = CGRect(x: toViewController!.view.frame.origin.x, y: toViewController!.view.frame.size.height, width: toViewController!.view.frame.size.width, height: toViewController!.view.frame.size.height)
             toViewController!.view.frame = initialFrame
             
-            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
                 toViewController!.view.frame = finalFrame
-                
             }, completion: { _ in
                 if transitionContext.transitionWasCancelled {
                     transitionContext.completeTransition(false)
@@ -51,10 +50,12 @@ extension AnimationController: UIViewControllerAnimatedTransitioning {
             
         } else if direction == .Dismiss {
             
-            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+                
                 fromViewController!.view.frame = CGRect(x: fromViewController!.view.frame.origin.x, y: fromViewController!.view.frame.size.height, width: fromViewController!.view.frame.size.width, height: fromViewController!.view.frame.size.height)
                 
             }, completion: { _ in
+                
                 if transitionContext.transitionWasCancelled {
                     transitionContext.completeTransition(false)
                 } else {

@@ -64,11 +64,11 @@
 				3E3F75451F5FFED500D86729 /* ViewController.swift */,
 				3E3F75591F63D3AC00D86729 /* AnotherViewController.swift */,
 				3E3F75551F6003C300D86729 /* AnimationController.swift */,
+				3E3F75571F62A20000D86729 /* InteractionController.swift */,
 				3E3F75471F5FFED500D86729 /* Main.storyboard */,
 				3E3F754A1F5FFED500D86729 /* Assets.xcassets */,
 				3E3F754C1F5FFED500D86729 /* LaunchScreen.storyboard */,
 				3E3F754F1F5FFED500D86729 /* Info.plist */,
-				3E3F75571F62A20000D86729 /* InteractionController.swift */,
 			);
 			path = "CustomTransitions-sample";
 			sourceTree = "<group>";
@@ -312,6 +312,7 @@
 				3E3F75541F5FFED500D86729 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

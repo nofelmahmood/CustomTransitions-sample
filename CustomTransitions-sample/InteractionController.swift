@@ -24,17 +24,24 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
     func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
         
         let translation = gestureRecognizer.translation(in: gestureRecognizer.view!.superview!)
-        let height = presentedViewController.view.frame.size.height - 50
+        let height = presentedViewController.view.frame.size.height
         var percent = translation.y / height
         percent = CGFloat(fmaxf(Float(percent), 0.0))
         percent = CGFloat(fminf(Float(percent), 1.0))
+        
+        let threshold = 0.5
+        let shouldFinish = percent > CGFloat(threshold)
         
         if gestureRecognizer.state == .began {
             presentedViewController.dismiss(animated: true, completion: nil)
         } else if gestureRecognizer.state == .changed {
             update(percent)
         } else if gestureRecognizer.state == .ended {
-            finish()
+            if shouldFinish {
+                finish()
+            } else {
+                cancel()
+            }
         } else if gestureRecognizer.state == .cancelled {
             cancel()
         }
