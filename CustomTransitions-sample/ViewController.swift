@@ -58,7 +58,7 @@ extension ViewController: UIViewControllerTransitioningDelegate {
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         
-        return dismissInteractionController
+        return dismissInteractionController.isInteracting ? dismissInteractionController: nil
     }
 }
 

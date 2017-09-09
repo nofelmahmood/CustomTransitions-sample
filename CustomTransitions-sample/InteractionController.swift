@@ -13,6 +13,8 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
     var presentedViewController: UIViewController!
     var panGestureRecognizer: UIPanGestureRecognizer!
     
+    var isInteracting = false
+    
     init(presentedViewController: UIViewController) {
         super.init()
         self.presentedViewController = presentedViewController
@@ -33,6 +35,7 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
         let shouldFinish = percent > CGFloat(threshold)
         
         if gestureRecognizer.state == .began {
+            isInteracting = true
             presentedViewController.dismiss(animated: true, completion: nil)
         } else if gestureRecognizer.state == .changed {
             update(percent)
