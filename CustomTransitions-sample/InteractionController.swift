@@ -39,14 +39,14 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
             presentedViewController.dismiss(animated: true, completion: nil)
         } else if gestureRecognizer.state == .changed {
             update(percent)
-        } else if gestureRecognizer.state == .ended {
+            
+        } else if gestureRecognizer.state == .ended || gestureRecognizer.state == .cancelled {
+            isInteracting = false
             if shouldFinish {
                 finish()
             } else {
                 cancel()
             }
-        } else if gestureRecognizer.state == .cancelled {
-            cancel()
         }
     }
     
